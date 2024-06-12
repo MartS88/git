@@ -95,7 +95,7 @@ const App = () => {
     return (
 
         <div className={classes.App}>
-            <h1>FIX branch</h1>
+
 
             <div className={classes.todo_block}>
                 <h1>Todos:</h1>
