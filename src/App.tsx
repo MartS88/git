@@ -3,6 +3,7 @@ import classes from './App.module.scss';
 import {ImCheckboxChecked, ImCheckboxUnchecked} from 'react-icons/im';
 import './index.scss';
 import Loader from './Loader';
+import {useValue} from "./hooks/use-value";
 
 
 
@@ -93,14 +94,15 @@ const App = () => {
     //     fetchData()
     // }, []);
 
-
+    const {value,toggleValue} = useValue(false)
 
     return (
 
         <div className={classes.App}>
 
             <div className={classes.button_block}>
-                <button>Click</button>
+                <button onClick={toggleValue}>Click</button>
+                {value ? 'true' : 'false'}
             </div>
 
 
