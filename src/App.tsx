@@ -6,6 +6,7 @@ import Loader from './Loader';
 
 
 
+
 interface Todo {
     title: string;
     isCompleted: boolean;
@@ -92,9 +93,15 @@ const App = () => {
     //     fetchData()
     // }, []);
 
+
+
     return (
 
         <div className={classes.App}>
+
+            <div className={classes.button_block}>
+                <button>Click</button>
+            </div>
 
 
             <div className={classes.todo_block}>
