@@ -1,10 +1,21 @@
 .App {
-  margin: 0auto;
+  margin: 0 auto;
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .button_block {
+    margin: 0 auto;
+    width: 500px;
+    height: 400px;
+    border: 1px solid black;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 
   .todo_block {

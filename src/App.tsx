@@ -3,6 +3,8 @@ import classes from './App.module.scss';
 import {ImCheckboxChecked, ImCheckboxUnchecked} from 'react-icons/im';
 import './index.scss';
 import Loader from './Loader';
+import {useValue} from "./hooks/use-value";
+
 
 
 
@@ -92,10 +94,21 @@ const App = () => {
     //     fetchData()
     // }, []);
 
+    const {value,toggleValue} = useValue(false)
+
     return (
 
         <div className={classes.App}>
+
             <h1>FIX branch</h1>
+
+
+            <div className={classes.button_block}>
+                <button onClick={toggleValue}>Click</button>
+                {value ? 'true' : 'false'}
+            </div>
+
+
 
             <div className={classes.todo_block}>
                 <h1>Todos:</h1>
