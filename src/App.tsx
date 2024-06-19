@@ -75,24 +75,26 @@ const App = () => {
         setActiveButton(inputValue.length <= 2);
     }, [inputValue]);
 
-    //
-    // const [data,setData] = useState([])
-    // const [error,setError] = useState<string>('');
-    // const fetchData = async () => {
-    //     try {
-    //         const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-    //         console.log('repsonse', response)
-    //         setData(response.data);
-    //         return response
-    //     }
-    //     catch (error:any){
-    //         console.log(error)
-    //         setError('Error fetching data')
-    //     }
-    // }
-    // useEffect(() => {
-    //     fetchData()
-    // }, []);
+
+
+
+    const [data,setData] = useState([])
+    const [error,setError] = useState<string>('');
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+            console.log('repsonse', response)
+            setData(response.data);
+            return response
+        }
+        catch (error:any){
+            console.log(error)
+            setError('Error fetching data')
+        }
+    }
+    useEffect(() => {
+        fetchData()
+    }, []);
 
     const {value,toggleValue} = useValue(false)
 
