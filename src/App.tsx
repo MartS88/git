@@ -102,6 +102,8 @@ const App = () => {
 
         <div className={classes.App}>
 
+            <h1>git reset --soft ORIG_HEAD</h1>
+
             <h1>FIX branch</h1>
 
 
