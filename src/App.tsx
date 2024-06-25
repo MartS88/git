@@ -4,8 +4,7 @@ import {ImCheckboxChecked, ImCheckboxUnchecked} from 'react-icons/im';
 import './index.scss';
 import Loader from './Loader';
 import {useValue} from "./hooks/use-value";
-import axios from 'axios';
-import Pagination from "./pagination/Pagination";
+
 
 
 
@@ -76,33 +75,24 @@ const App = () => {
         setActiveButton(inputValue.length <= 2);
     }, [inputValue]);
 
-
-
-
-    const [data,setData] = useState([])
-    const [error,setError] = useState<string>('');
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(10);
-    const lastPostIndex = currentPage * postsPerPage;
-    const firstPostIndex = lastPostIndex - postsPerPage;
-    const currentPosts = data.slice(firstPostIndex, lastPostIndex);
-
-    const fetchData = async () => {
-        try {
-
-            const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-            console.log('response', response)
-            setData(response.data);
-            return response
-        }
-        catch (error:any){
-            console.log(error)
-            setError('Error fetching data')
-        }
-    }
-    useEffect(() => {
-        fetchData()
-    }, []);
+    //
+    // const [data,setData] = useState([])
+    // const [error,setError] = useState<string>('');
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+    //         console.log('repsonse', response)
+    //         setData(response.data);
+    //         return response
+    //     }
+    //     catch (error:any){
+    //         console.log(error)
+    //         setError('Error fetching data')
+    //     }
+    // }
+    // useEffect(() => {
+    //     fetchData()
+    // }, []);
 
     const {value,toggleValue} = useValue(false)
 
@@ -110,29 +100,10 @@ const App = () => {
 
         <div className={classes.App}>
 
-            <h1>Git branch -v</h1>
-
-            <h1>FIX branch</h1>
-
-
             <div className={classes.button_block}>
                 <button onClick={toggleValue}>Click</button>
                 {value ? 'true' : 'false'}
-
-                {data.length > 0 && currentPosts.map((item: any) => (
-                    <div key={item.id}>{item.name}</div>
-                ))}
-
-                <Pagination
-                    totalPosts={data.length}
-                    postsPerPage={postsPerPage}
-                    setCurrentPage={setCurrentPage}
-                    currentPage={currentPage}
-                />
-
-
             </div>
-
 
 
             <div className={classes.todo_block}>
