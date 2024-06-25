@@ -101,6 +101,7 @@ const App = () => {
         <div className={classes.App}>
 
             <h1>Git cherry pick</h1>
+            <h2>Git rebase</h2>
             <div className={classes.button_block}>
                 <button onClick={toggleValue}>Click</button>
                 {value ? 'true' : 'false'}
